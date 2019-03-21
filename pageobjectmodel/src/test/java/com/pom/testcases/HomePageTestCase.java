@@ -1,4 +1,4 @@
-package com.pom.testcases.HomePage;
+package com.pom.testcases;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ public class HomePageTestCase extends Base{
 	
 
 	
-	@Test(priority=0)
+	@Test(priority=0, groups= {"regression"})
 	public void clickOnNavigationBarButtons() {
 
 		//bookOnPaytmNavigationBar.clickOnFlights();
@@ -28,7 +28,7 @@ public class HomePageTestCase extends Base{
 	}
 	
 	
-	@Test(priority=1)
+	@Test(priority=1, dependsOnMethods= {"clickOnNavigationBarButtons"},alwaysRun=true)
 	public void loginWithInvalidData() {
 		topNavigationBar.clickOnLogin();
 		

@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Regression">
 
-    <listeners>
-        <listerner class-name = "org.uncommons.reporting.HTMLReporter"/>
-        <listerner class-name = "org.uncommons.reporting.JUnitXMLReporter"/>
-    </listeners>
-    
-  <test name="Test">
+    <groups>
+        <run>
+            <include name="Regression"> </include>
+        </run>
+    </groups>
+ 
+  <test thread-count="5" name="Test">
+  <groups>
+        <run>
+            <include name="Regression"> </include>
+        </run>
+  </groups>
+
     <classes>
-      <class name="com.pom.testcases.HomePage.HomePageTestCase"/>
+      <class name="com.pom.testcases.HomePageTestCase"/>
+      <class name="com.pom.testcases.ElectricityTestCase"/>
+      <class name="com.pom.testcases.PaytmWalletTestCase"/>
+      <class name="com.pom.testcases.BookFlightsTestCase"/>
     </classes>
   </test> <!-- Test -->
-</suite> <!-- Suite -->
+</suite> <!-- Regression -->

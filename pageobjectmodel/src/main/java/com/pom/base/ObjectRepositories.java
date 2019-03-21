@@ -9,8 +9,7 @@ public class ObjectRepositories {
 		// public static By MobileRechargeButton_xpath =
 		// By.xpath("//div[@class='_2kcr']//a[@title='Mobile ']");
 		public static By MobileRechargeButton_xpath = By.xpath("//a//span[contains(text(),'Mobile')]");
-		public static By operator_xpath = By
-				.xpath("//div[@class='_1PHd']//li//div[@class='_119G']//input[@type='text']");
+		public static By operator_xpath = By.xpath("//div[@class='_1EzG']//ul//li//a");
 		public static By drop_xpath = By.xpath("//div[@class='_1EzG']//ul//li//a");
 		public static By circle_xpath = By
 				.xpath("//*[@id=\"app\"]/div/div[3]/div/div[2]/div[1]/div[1]/div/div[1]/div[2]/ul/li[3]/div/div/input");
@@ -23,6 +22,7 @@ public class ObjectRepositories {
 		public static By clickOn_electricity_button_xpath = By.xpath("//a//span[contains(text(),'Electricity')]");
 
 		public static By operatorNew = By.xpath("//div[@class='_1EzG']//ul//li//a");
+		
 	}
 
 	public static class DTHPage {

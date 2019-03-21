@@ -5,9 +5,11 @@ import com.pom.base.ObjectRepositories;
 
 public class BookFlightsPage {
 
-	public void clickOnFromTextBox() {
+	public void clickOnFromTextBox() throws InterruptedException {
 		//GeneralFunctions.clickButton(ObjectRepositories.Flights.clickOnFromTextBox_xpath);
-		GeneralFunctions.waitAndFindElement(ObjectRepositories.Flights.clickOnFromTextBox_xpath, 30).sendKeys("Hyderabad");
+		GeneralFunctions.waitAndFindElement(ObjectRepositories.Flights.clickOnFromTextBox_xpath, 30);
+		Thread.sleep(100);
+		//GeneralFunctions.listOfElements(ObjectRepositories.Flights.fromDropdownItems_xpath);
 	}
 	
 	public void fromDropDown() {

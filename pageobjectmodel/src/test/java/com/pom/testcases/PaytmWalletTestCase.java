@@ -1,4 +1,4 @@
-package com.pom.testcases.HomePage;
+package com.pom.testcases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

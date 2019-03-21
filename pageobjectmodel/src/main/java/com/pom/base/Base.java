@@ -9,8 +9,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.asserts.SoftAssert;
 
 import com.pom.pages.BookFlightsPage;
+import com.pom.pages.ElectricityPage;
 
 public class Base {
 	public static WebDriver driver;
@@ -20,6 +22,8 @@ public class Base {
 	public static BookOnPaytmNavigationBar bookOnPaytmNavigationBar;
 	public static TopNavigationBar topNavigationBar;
 	public static BookFlightsPage bookFlightsPage;
+	public static ElectricityPage electricityPage;
+	public static SoftAssert softAssert;
 
 	/*
 	 * TestBase constructor has the details of the properties file and load the data
@@ -67,7 +71,8 @@ public class Base {
 			bookOnPaytmNavigationBar = new BookOnPaytmNavigationBar();
 			topNavigationBar = new TopNavigationBar();
 			bookFlightsPage = new BookFlightsPage();
-
+			electricityPage = new ElectricityPage();
+			softAssert = new SoftAssert();
 		}
 	
 }
