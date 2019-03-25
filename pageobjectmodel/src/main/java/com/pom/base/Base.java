@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.asserts.SoftAssert;
 
+import com.pom.listeners.MyListeners;
 import com.pom.pages.BookFlightsPage;
 import com.pom.pages.ElectricityPage;
 
@@ -24,6 +25,7 @@ public class Base {
 	public static BookFlightsPage bookFlightsPage;
 	public static ElectricityPage electricityPage;
 	public static SoftAssert softAssert;
+	MyListeners myListeners;
 
 	/*
 	 * TestBase constructor has the details of the properties file and load the data
@@ -73,6 +75,8 @@ public class Base {
 			bookFlightsPage = new BookFlightsPage();
 			electricityPage = new ElectricityPage();
 			softAssert = new SoftAssert();
+			myListeners = new MyListeners(driver);
+			
 		}
 	
 }

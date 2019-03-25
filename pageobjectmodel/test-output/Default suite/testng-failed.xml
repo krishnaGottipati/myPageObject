@@ -5,7 +5,6 @@
     <classes>
       <class name="com.pom.testcases.HomePageTestCase">
         <methods>
-          <include name="loginWithInvalidData"/>
           <include name="clickOnNavigationBarButtons"/>
         </methods>
       </class> <!-- com.pom.testcases.HomePageTestCase -->
