@@ -12,12 +12,14 @@ import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 
+import com.pom.base.GeneralFunctions;
+
 public class MyListeners implements ITestListener {
 
 		
 	public static WebDriver driver;
-	public MyListeners(WebDriver driver) {
-		this.driver = driver;
+	public MyListeners() {
+		super();
 	}
 	
 	
@@ -34,14 +36,7 @@ public class MyListeners implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		System.out.println("Test case -" +result.getName() + "is FAILED");
-		
-		File Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(Screenshot, new File(".//screenshot//error.jpg"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		GeneralFunctions.takeScreenshot();
 		
 	}
 

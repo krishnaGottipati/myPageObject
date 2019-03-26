@@ -1,10 +1,16 @@
 package com.pom.base;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -90,6 +96,19 @@ public class GeneralFunctions {
 		}
 		
 		return false;
+		
+	}
+	
+	public static void takeScreenshot() {
+		Date d = new Date();
+		String fileName = d.toString().replace(":", "_").replace(" ", "_");
+		File Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(Screenshot, new File("E://" +fileName+ ".jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

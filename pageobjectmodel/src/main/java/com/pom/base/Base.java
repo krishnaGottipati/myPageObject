@@ -74,7 +74,7 @@ public class Base {
 			bookFlightsPage = new BookFlightsPage();
 			electricityPage = new ElectricityPage();
 			softAssert = new SoftAssert();
-			myListeners = new MyListeners(driver);
+			myListeners = new MyListeners();
 			
 		}
 	
