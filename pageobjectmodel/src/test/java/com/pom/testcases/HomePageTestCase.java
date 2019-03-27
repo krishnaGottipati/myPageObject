@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.pom.base.ApplicationFunctions;
 import com.pom.base.Base;
+import com.pom.base.GeneralFunctions;
 import com.pom.base.TopNavigationBar;
 
 
@@ -22,8 +23,9 @@ public class HomePageTestCase extends Base{
 		topNavigationBar.clickOnElectricity();
 		topNavigationBar.clickOnSearchBar();
 		topNavigationBar.searchSuggestions();
-		topNavigationBar.clickOnDTH();
-		topNavigationBar.clickOnLogin();
+		//topNavigationBar.clickOnDTH();
+		//topNavigationBar.clickOnLogin();
+		
 		
 	}
 	

@@ -25,18 +25,21 @@ public class MyListeners implements ITestListener {
 	
 	public void onTestStart(ITestResult result) {
 		
-		System.out.println("Test case -" +result.getName() + "is STARTED");
+		System.out.println("Test case -" +result.getName() + " is STARTED");
 
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("Test case -" +result.getName() + "is PASS");
+		System.out.println("Test case -" +result.getName() + " is PASS");
 		
 	}
 
 	public void onTestFailure(ITestResult result) {
-		System.out.println("Test case -" +result.getName() + "is FAILED");
-		GeneralFunctions.takeScreenshot();
+		
+		String output = result.getName();
+		System.out.println("Test case - " + output + " is FAILED");
+		
+		GeneralFunctions.takeScreenshot(output);
 		
 	}
 

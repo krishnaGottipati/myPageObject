@@ -35,7 +35,7 @@ public class Base {
 			try {
 				prop = new Properties();
 				FileInputStream fis = new FileInputStream(
-						"C:/Users/kls/Documents/pageobjectmodel/src/test/resources/com/pom/properties/config.properties");
+						 System.getProperty("user.dir") + "/src/test/resources/com/pom/properties/config.properties");
 				prop.load(fis);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -53,7 +53,8 @@ public class Base {
 	public void initilizeDriver() {
 		String browserName = prop.getProperty("browser");
 		if(browserName.contains("Chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C://Users//kls//Downloads//chromedriver_win32//chromedriver.exe");
+		//	/pageobjectmodel/src/test/resources/com/pom/executables/chromedriver.exe
+			System.setProperty("webdriver.chrome.driver",  "C://Users//kgottipati.WDIINDIA//Documents//chromedriver.exe");
 			driver= new ChromeDriver();
 		} 
 		else if(browserName.contains("Firefox")) {
