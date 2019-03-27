@@ -1,15 +1,19 @@
 package com.pom.base;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -95,6 +99,32 @@ public class GeneralFunctions {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	/*---- takeScreenshot method is used to take the screenshot of the element of the page----*/
+	public static void takeScreenshot(String output, By objlocator) {
+		Date d = new Date();
+		String fileName = "ElementScreenshot_ " +output + " " + d.toString().replace(":", "_").replace(" ", "_");
+		File Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		
+		try {
+			BufferedImage fullImage = ImageIO.read(Screenshot); 
+			WebElement element = driver.findElement(objlocator);
+		//	Point point = element.getLocation();
+			int elementWidth = element.getSize().getWidth();
+			int elementHeight = element.getSize().getHeight();
+			
+			BufferedImage myElementScreenshot = fullImage.getSubimage(element.getLocation().getX(), element.getLocation().getY(), elementWidth, elementHeight);
+			ImageIO.write(myElementScreenshot, "jpg", Screenshot);
+			FileUtils.copyFile(Screenshot, new File("D://" + fileName + ".jpg"));
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 	
 }
