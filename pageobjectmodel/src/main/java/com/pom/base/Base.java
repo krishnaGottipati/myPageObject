@@ -13,6 +13,8 @@ import org.testng.asserts.SoftAssert;
 import com.pom.listeners.MyListeners;
 import com.pom.pages.BookFlightsPage;
 import com.pom.pages.ElectricityPage;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 
 public class Base {
 	public static WebDriver driver;
@@ -25,6 +27,8 @@ public class Base {
 	public static ElectricityPage electricityPage;
 	public static SoftAssert softAssert;
 	MyListeners myListeners;
+	public ExtentReports rep = GeneralFunctions.getInstance();
+	public static ExtentTest test;
 
 	/*
 	 * TestBase constructor has the details of the properties file and load the data
@@ -54,7 +58,7 @@ public class Base {
 		String browserName = prop.getProperty("browser");
 		if(browserName.contains("Chrome")) {
 		//	/pageobjectmodel/src/test/resources/com/pom/executables/chromedriver.exe
-			System.setProperty("webdriver.chrome.driver",  "C://Users//kgottipati.WDIINDIA//Documents//chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",  "E://chromedriver.exe");
 			driver= new ChromeDriver();
 		} 
 		else if(browserName.contains("Firefox")) {

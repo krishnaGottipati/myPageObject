@@ -11,10 +11,13 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 
+import com.pom.base.Base;
 import com.pom.base.GeneralFunctions;
+import com.relevantcodes.extentreports.LogStatus;
 
-public class MyListeners implements ITestListener {
+public class MyListeners extends Base implements ITestListener {
 
 		
 	public static WebDriver driver;
@@ -24,6 +27,7 @@ public class MyListeners implements ITestListener {
 	
 	
 	public void onTestStart(ITestResult result) {
+		test =rep.startTest(result.getName());
 		
 		System.out.println("Test case -" +result.getName() + " is STARTED");
 
@@ -31,15 +35,31 @@ public class MyListeners implements ITestListener {
 
 	public void onTestSuccess(ITestResult result) {
 		System.out.println("Test case -" +result.getName() + " is PASS");
+		test.log(LogStatus.PASS, result.getName() + " is PASS");
+		rep.endTest(test);
+		rep.flush();
+		
 		
 	}
 
 	public void onTestFailure(ITestResult result) {
+		test.log(LogStatus.FAIL, result.getName() + " FAILED" + result.getThrowable());
 		
-		String output = result.getName();
-		System.out.println("Test case - " + output + " is FAILED");
 		
-		GeneralFunctions.takeScreenshot(output);
+		System.setProperty("org.uncommons.reportng.escape-output", "false");
+		
+		String testCaseName = result.getName();
+		Reporter.log("Test case - " + testCaseName + " is FAILED");
+		System.out.println("Test case - " + testCaseName + " is FAILED");
+		String screenshotName = GeneralFunctions.takeScreenshot(testCaseName);
+		String href = System.getProperty("user.dir")+ "\\test-output\\html\\screenshots\\" + screenshotName + ".jpg" ;
+		System.out.println( "href = " +href);
+		Reporter.log("<a href= "+ href + " target= \"_blank\"> click screenshot</a>");
+		
+		test.log(LogStatus.FAIL, test.addScreenCapture(href));
+		rep.endTest(test);
+		rep.flush();
+		
 		
 	}
 

@@ -23,9 +23,13 @@ import org.openqa.selenium.support.ui.Wait;
 import org.testng.ITestResult;
 
 import com.google.common.base.Function;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class GeneralFunctions {
 	static WebDriver driver;
+	static String testCaseName;
+	static ExtentReports extent;
 
 	public GeneralFunctions(WebDriver driver) {
 		this.driver = driver;
@@ -48,6 +52,7 @@ public class GeneralFunctions {
 	public static boolean clickButton(By objlocator) {
 		try {
 			waitAndFindElement(objlocator, 30).click();
+			Base.test.log(LogStatus.INFO, "Clicking on " + objlocator);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -87,44 +92,57 @@ public class GeneralFunctions {
 		return false;
 
 	}
+
 	/*------ takeScreenshot method is used to take the screenshot of the page*/
-	public static void takeScreenshot(String output) {
+	public static String takeScreenshot(String testCaseName) {
 		Date d = new Date();
-		String fileName = output + " " + d.toString().replace(":", "_").replace(" ", "_");
-		System.out.println("krishna = " + fileName);
+		String screenshotName = testCaseName + "_" + d.toString().replace(":", "_").replace(" ", "_");
+		// System.out.println("krishna = " + screenshotName);
 		File Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(Screenshot, new File("D://" + fileName + ".jpg"));
+
+			FileUtils.copyFile(Screenshot, new File(
+					System.getProperty("user.dir") + "/test-output/html/screenshots/" + screenshotName + ".jpg"));
+
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return screenshotName;
 	}
-	
+
 	/*---- takeScreenshot method is used to take the screenshot of the element of the page----*/
 	public static void takeScreenshot(String output, By objlocator) {
 		Date d = new Date();
-		String fileName = "ElementScreenshot_ " +output + " " + d.toString().replace(":", "_").replace(" ", "_");
+		String fileName = "ElementScreenshot_ " + output + " " + d.toString().replace(":", "_").replace(" ", "_");
 		File Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		
+
 		try {
-			BufferedImage fullImage = ImageIO.read(Screenshot); 
+			BufferedImage fullImage = ImageIO.read(Screenshot);
 			WebElement element = driver.findElement(objlocator);
-		//	Point point = element.getLocation();
+			// Point point = element.getLocation();
 			int elementWidth = element.getSize().getWidth();
 			int elementHeight = element.getSize().getHeight();
-			
-			BufferedImage myElementScreenshot = fullImage.getSubimage(element.getLocation().getX(), element.getLocation().getY(), elementWidth, elementHeight);
+
+			BufferedImage myElementScreenshot = fullImage.getSubimage(element.getLocation().getX(),
+					element.getLocation().getY(), elementWidth, elementHeight);
 			ImageIO.write(myElementScreenshot, "jpg", Screenshot);
 			FileUtils.copyFile(Screenshot, new File("D://" + fileName + ".jpg"));
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
+
 	}
-	
+
+	public static ExtentReports getInstance() {
+		if (extent == null) {
+			extent = new ExtentReports(System.getProperty("user.dir") + "\\test-output\\html\\extent.html");
+			extent.loadConfig(new File(System.getProperty("user.dir")+ "\\src\\test\\resources\\com\\pom\\extentconfig\\extentReportConfig.xml"));
+			
+		}
+		return extent;
+
+	}
+
 }

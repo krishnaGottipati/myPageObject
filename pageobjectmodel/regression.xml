@@ -4,10 +4,11 @@
 
 <listeners>
 <listener class-name="com.pom.listeners.MyListeners"/>
+<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
 </listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.pom.testcases.HomePageTestCase"/>
+    <!--  <class name="com.pom.testcases.HomePageTestCase"/> --> 
       <class name="com.pom.testcases.ElectricityTestCase"/>
       <class name="com.pom.testcases.PaytmWalletTestCase"/>
       <class name="com.pom.testcases.BookFlightsTestCase"/>
