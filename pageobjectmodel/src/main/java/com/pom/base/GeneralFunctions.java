@@ -58,6 +58,15 @@ public class GeneralFunctions {
 			return false;
 		}
 	}
+	
+	public static void switchToFrame(By objlocator) {   //Ref: https://stackoverflow.com/questions/9942928/how-to-handle-iframe-in-selenium-webdriver-using-java
+		
+		List<WebElement> listFrames = driver.findElements(By.tagName("iframe"));
+		System.out.println("list frames   "+listFrames.size());
+		WebElement element = driver.findElement(objlocator);
+		driver.switchTo().frame(element);
+	}
+	
 
 	public static boolean listOfElements(By objlocator) {
 		try {

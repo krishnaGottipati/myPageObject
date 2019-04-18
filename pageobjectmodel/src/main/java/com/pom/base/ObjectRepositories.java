@@ -48,6 +48,7 @@ public class ObjectRepositories {
 	
 	public static class Login{
 		public static By clickOnLoginButton_xpath = By.xpath("//div[contains(text(),'Log In/Sign Up')]");
+		public static By loginTabiFrame_cssSelector = By.cssSelector("iframe[src='/v1/api/login?isIframe=true&theme=mp-web']");
 		public static By loginWithMobileNumber_xpath = By.xpath("//span[contains(text(),'Login/Signup with mobile number and password')]");
 	}
 	

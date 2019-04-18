@@ -58,7 +58,7 @@ public class Base {
 		String browserName = prop.getProperty("browser");
 		if(browserName.contains("Chrome")) {
 		//	/pageobjectmodel/src/test/resources/com/pom/executables/chromedriver.exe
-			System.setProperty("webdriver.chrome.driver",  "E://chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",  "D://chromedriver.exe");
 			driver= new ChromeDriver();
 		} 
 		else if(browserName.contains("Firefox")) {

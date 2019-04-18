@@ -36,6 +36,7 @@ public class TopNavigationBar {
 	
 	public void clickOnLogin() {
 		GeneralFunctions.clickButton(ObjectRepositories.Login.clickOnLoginButton_xpath);
+		GeneralFunctions.switchToFrame(ObjectRepositories.Login.loginTabiFrame_cssSelector);
 		GeneralFunctions.waitAndFindElement(ObjectRepositories.Login.loginWithMobileNumber_xpath, 50).click();
 	}
 	
