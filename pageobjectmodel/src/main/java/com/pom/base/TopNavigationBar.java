@@ -43,5 +43,9 @@ public class TopNavigationBar {
 	public void clickOnPaytmWallet() {
 		GeneralFunctions.clickButton(ObjectRepositories.PaytmWallet.clickOnPaytmWalletButton_xpath);
 	}
+	
+	public void clickonShopByCategoryHamburgerButton() {
+		GeneralFunctions.clickButton(ObjectRepositories.shopByCategory.shopByCategoryButton_xpath);
+	}
 
 }

@@ -56,4 +56,12 @@ public class ObjectRepositories {
 		public static By clickOnPaytmWalletButton_xpath = By.xpath("//div[@class='fklM']");
 		public static By paytmWalletdropDown_xpath = By.xpath("//div[@class='_3_n5']//ul//li");
 	}
+	
+	public static class shopByCategory{
+		public static By shopByCategoryButton_xpath = By.xpath("//div[@class='_22in']//i[@class='iconMenu cursor']");
+		public static By shopBycategorysection_xpath = By.xpath("//div[@class='_3s3i']");
+		public static By shopByCategoryMenuHeading_xpath = By.xpath("//span[@class='_2pDj' and text()=' Shop by Category']");
+		public static By mainCategoryList_xpath = By.xpath("//div[@class='_26bf']");
+		
+	}
 }
