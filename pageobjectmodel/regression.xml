@@ -3,7 +3,7 @@
 <suite name="Suite">
 
 <listeners>
-  <listener class-name="com.pom.listeners.MyListeners"></listener>
+  <listener class-name="com.pom.base.MyListeners"></listener>
   <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
 </listeners>
   <test thread-count="5" name="Test">
