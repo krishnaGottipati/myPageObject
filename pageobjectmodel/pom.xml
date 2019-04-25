@@ -61,7 +61,7 @@
 				<configuration>
 					<testFailureIgnore> false </testFailureIgnore>
 					<suiteXmlFiles>
-						<suiteXmlFile>C:\Users\kls\Documents\myPageObject\pageobjectmodel\regression.xml</suiteXmlFile>
+						<suiteXmlFile>pageobjectmodel\regression.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
