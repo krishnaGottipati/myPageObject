@@ -17,7 +17,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
 public class Base {
-	public static WebDriver driver;
+	public static WebDriver driver = null;
 	Properties prop;
 	// public static ApplicationFunctions applicationFunctions;
 	GeneralFunctions generalFunctions;
@@ -34,7 +34,7 @@ public class Base {
 	 * TestBase constructor has the details of the properties file and load the data
 	 */
 	public Base() {
-
+	myListeners = new MyListeners();
 		if (driver == null) {
 			try {
 				prop = new Properties();
@@ -79,7 +79,7 @@ public class Base {
 			bookFlightsPage = new BookFlightsPage();
 			electricityPage = new ElectricityPage();
 			softAssert = new SoftAssert();
-			myListeners = new MyListeners();
+			
 			
 		}
 	
