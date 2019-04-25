@@ -61,7 +61,7 @@
 				<configuration>
 					<testFailureIgnore> false </testFailureIgnore>
 					<suiteXmlFiles>
-						<suiteXmlFile>pageobjectmodel/regression.xml</suiteXmlFile>
+						<suiteXmlFile>regression.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
