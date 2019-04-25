@@ -74,6 +74,7 @@
                 			<target>1.8</target>
 					<include>src/main/java/**/*.java</include>
 					<include>src/main/java/**/*.xml</include>
+					<include>src/main/**/**/*classes</include>
             			</configuration>
         		</plugin>
 		</plugins>
