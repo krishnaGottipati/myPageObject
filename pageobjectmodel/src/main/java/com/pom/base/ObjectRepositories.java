@@ -63,5 +63,10 @@ public class ObjectRepositories {
 		public static By shopByCategoryMenuHeading_xpath = By.xpath("//span[@class='_2pDj' and text()=' Shop by Category']");
 		public static By mainCategoryList_xpath = By.xpath("//div[@class='_26bf']");
 		
+		public static By subMenuCategoryList_xpath = By.xpath("//div[@class='bbKy']//div[@class='_2ylo']//div[contains(@class,'_31Cs _2nGI')]");
+		
+		
 	}
+
+
 }

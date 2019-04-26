@@ -68,7 +68,7 @@ public class GeneralFunctions {
 	}
 	
 
-	public static boolean listOfElements(By objlocator) {
+	public static List<WebElement> listOfElements(By objlocator) {
 		try {
 			// List<WebElement> listOfWebElements = (List<WebElement>)
 			// waitAndFindElement(objlocator, 30);
@@ -77,13 +77,14 @@ public class GeneralFunctions {
 			for (int i = 0; i < listOfWebElements.size(); i++) {
 				System.out.println("List of elements = " + listOfWebElements.get(i).getText());
 			}
-			return true;
+			return listOfWebElements;
 		} catch (Exception e) {
-			return false;
+			return null;
 		}
+		
 
 	}
-
+	
 	public boolean dropdownlist(By objlocator) {
 		WebElement dropDownElement = waitAndFindElement(objlocator, 30);
 		Select dropdowns = new Select(dropDownElement);
