@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.asserts.SoftAssert;
 
-import com.pom.listeners.MyListeners;
+import com.pom.base.MyListeners;
 import com.pom.pages.BookFlightsPage;
 import com.pom.pages.ElectricityPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -34,7 +34,7 @@ public class Base {
 	 * TestBase constructor has the details of the properties file and load the data
 	 */
 	public Base() {
-
+	
 		if (driver == null) {
 			try {
 				prop = new Properties();
