@@ -21,38 +21,28 @@ public class ShopByCategoryMenuTestCase extends Base {
 		softAssert.assertEquals(GeneralFunctions
 				.waitAndFindElement(ObjectRepositories.shopByCategory.shopByCategoryMenuHeading_xpath, 30).getText(),
 				" Shop by Category");
-		
-	//	driver.findElement(By.xpath("//div[@class='_26bf']//a[3]")).click();
-		
-		List<WebElement> list = GeneralFunctions.listOfElements(ObjectRepositories.shopByCategory.mainCategoryList_xpath);
-		ArrayList categoryListarray = new ArrayList();
-		for(WebElement categoryList : list) {
-			
-		categoryListarray.add(categoryList.getText());
-		
-		for (WebElement element:list) {
-		    if ( element.equals( "GROCERY" )) {
-		    	driver.findElement(By.xpath("//div[@class='_26bf']//a[3]")).click();
-		    }
-		}
-			
-		}
-		System.out.println("array list = " + categoryListarray);
-		
-		
-		/*
+
+		// driver.findElement(By.xpath("//div[@class='_26bf']//a[3]")).click();
+
 		List<WebElement> list = GeneralFunctions
 				.listOfElements(ObjectRepositories.shopByCategory.mainCategoryList_xpath);
+		 int i=0;
+		  for (WebElement li : list) { 
+			  System.out.println();
+		  System.out.println(li.getText());
+		  i++;
+		  if (li.getText().contains("ELECTRONICS")) {
+			  System.out.println(li.getText());
+			  System.out.println(i);
+			  System.out.println("Entered"); // Clicks on the matched webelement 
+			  li.click(); 
+			  }
+		  }
+		 
 
-		int size = list.size(); // Need to use this while comparing with config file
-
-		for (WebElement categoryList : list) {
-			//System.out.println("categorylist = " +categoryList.getText());
-			if (categoryList.getText().equals("Grocery")) {
-				
-				System.out.println(categoryList.getTagName());
-			}
-		}
-	*/
+		
 	}
+	
+
+	
 }
